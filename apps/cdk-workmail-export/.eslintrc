@@ -1,0 +1,7 @@
+{
+  "root": true,
+  "extends": ["@project/eslint-config-antfu"],
+  "rules": {
+    "no-new": 0
+  }
+}
