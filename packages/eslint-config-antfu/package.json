@@ -1,0 +1,15 @@
+{
+  "name": "@project/eslint-config-antfu",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Anthony Fu eslint package preset.",
+  "main": "index.js",
+  "dependencies": {
+    "@antfu/eslint-config": "^0.35.1",
+    "eslint": "^8.33.0",
+    "eslint-config-turbo": "^0.0.7"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}

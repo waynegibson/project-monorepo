@@ -1,0 +1,28 @@
+{
+  "name": "@project/root",
+  "private": true,
+  "packageManager": "pnpm@7.26.2",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "author": "Spacecomx LLC",
+  "engines": {
+    "node": ">=18.12.1"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "test": "turbo run test --no-daemon",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "ci:version": "turbo run build lint test && changeset version"
+  },
+  "devDependencies": {
+    "@changesets/changelog-git": "^0.1.14",
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.0",
+    "@project/eslint-config-antfu": "workspace:*",
+    "turbo": "^1.7.0"
+  }
+}

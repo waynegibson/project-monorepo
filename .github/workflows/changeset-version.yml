@@ -1,0 +1,59 @@
+name: changeset-version
+on:
+  push:
+    branches:
+      - main
+env:
+  CI: true
+  PNPM_CACHE_FOLDER: .pnpm-store
+  HUSKY: 0  # bypass husky commit hook for CI
+
+jobs:
+  version:
+    timeout-minutes: 8
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+          run_install: false
+
+      - name: get pnpm cache directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "PNPM_CACHE_FOLDER=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.PNPM_CACHE_FOLDER }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: install dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: bump package versions
+        uses: changesets/action@v1
+        with:
+          # custom versioning script in package.json
+          version: pnpm ci:version
+          # messages
+          commit: "chore: update package versions"
+          title: "chore: update package versions"
+        env:
+          # automatically available in actions
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
