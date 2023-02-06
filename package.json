@@ -13,9 +13,12 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
+    "db:generate": "turbo run db:generate",
+    "db:push": "turbo run db:push",
+    "db:seed": "turbo run db:seed",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint",
     "test": "turbo run test --no-daemon",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "ci:version": "turbo run build lint test && changeset version"
   },
   "devDependencies": {

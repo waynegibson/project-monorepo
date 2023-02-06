@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "files": [
-    "default.json"
+    "base.json",
+    "node16.json"
   ]
 }
