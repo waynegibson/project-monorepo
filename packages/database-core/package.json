@@ -2,7 +2,7 @@
   "name": "@project/database-core",
   "version": "0.0.0",
   "private": true,
-  "description": "The core database for the project.",
+  "description": "The core database schema for the project.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -16,10 +16,13 @@
     "db:migrate:dev": "prisma migrate dev",
     "db:generate": "prisma generate",
     "db:push": "prisma db push --skip-generate",
-    "db:seed": "tsx src/seed.ts",
-    "db:verify": "prisma db pull",
+    "db:seed": "tsx prisma/seed.ts",
     "format": "prisma format",
+    "watch": "tsup --watch",
     "studio": "prisma studio"
+  },
+  "peerDependencies": {
+    "prisma": "^4.9.0"
   },
   "dependencies": {
     "@prisma/client": "^4.9.0"
