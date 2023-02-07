@@ -3,14 +3,22 @@
   "globalEnv": ["NODE_ENV"],
   "pipeline": {
     "dev": {
+      "dependsOn": ["^db:generate"],
       "cache": false
     },
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".output/**", ".cdk.out/**"]
     },
-    "db:generate": {},
-    "db:migrate:deploy": {},
-    "db:push": {}
+    "db:generate": {
+      "cache": false
+    },
+    "db:migrate:deploy": {
+      "dependsOn": ["build"],
+      "cache": false
+    },
+    "db:push": {
+      "cache": false
+    }
   }
 }
