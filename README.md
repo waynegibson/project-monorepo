@@ -27,12 +27,17 @@ Once deployed you will need to copy the `.env.example` file to `.env` in order f
 cp .env.example .env
 ```
 
-If you added a custom database name, or use a cloud based database, you will need to update the `DATABASE_URL` in your `.env` accordingly.
+If you added a custom database name for local development, you will need to update the `DATABASE_URL` in your `.env` accordingly.
 
 Once deployed & up & running, you will need to create & deploy migrations to your database to add the necessary tables. This can be done using [Prisma Migrate](https://www.prisma.io/migrate):
 
 ```bash
-npx prisma migrate dev
+pnpm prisma migrate dev
+```
+To reset the database and have it seed the database.
+
+```bash
+pnpm prisma migrate reset
 ```
 
 ## Contributors

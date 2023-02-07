@@ -9,7 +9,6 @@ importers:
       '@changesets/cli': ^2.26.0
       '@project/eslint-config-antfu': workspace:*
       dotenv-cli: ^7.0.0
-      tsx: ^3.12.3
       turbo: ^1.7.0
     devDependencies:
       '@changesets/changelog-git': 0.1.14
@@ -17,7 +16,6 @@ importers:
       '@changesets/cli': 2.26.0
       '@project/eslint-config-antfu': link:packages/eslint-config-antfu
       dotenv-cli: 7.0.0
-      tsx: 3.12.3
       turbo: 1.7.0
 
   apps/cdk-workmail-export:

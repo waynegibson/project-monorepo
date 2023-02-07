@@ -3,7 +3,6 @@
   "globalEnv": ["NODE_ENV"],
   "pipeline": {
     "dev": {
-      "dependsOn": ["^postinstall"],
       "cache": false
     },
     "build": {
@@ -12,13 +11,6 @@
     },
     "db:generate": {},
     "db:migrate:deploy": {},
-    "db:migrate:dev": {
-      "env": ["DATABASE_URL"]
-    },
-    "db:push": {},
-    "db:seed": {
-      "env": ["DATABASE_URL"],
-      "cache": false
-    }
+    "db:push": {}
   }
 }

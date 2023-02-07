@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import type { Prisma } from '@prisma/client'
-import { prisma } from '../src'
+import { prisma } from '../src/index'
 
 const userData: Prisma.UserCreateInput[] = [
   {
