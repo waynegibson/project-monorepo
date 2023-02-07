@@ -5,11 +5,13 @@ This monorepo is used to mock, test and implement nodejs projects.
 ## Apps
 
 - @project/cdk-workmail-export
+- @project/marketing-website
 
 ## Packages
 
 - @project/tsconfig
 - @project/eslint-config-antfu
+- @project/database-core
 
 ### Database
 
