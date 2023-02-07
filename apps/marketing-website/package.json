@@ -9,7 +9,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "seed": "tsx src/prisma/seed.ts"
+    "db:seed": "tsx src/prisma/seed.ts"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.3.1",
