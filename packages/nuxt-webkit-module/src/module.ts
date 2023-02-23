@@ -12,10 +12,10 @@ export interface NuxtWebKitOptions {
 
 export default defineNuxtModule<NuxtWebKitOptions>({
   meta: {
-    name: '@superiorwagyu/nuxt-webkit',
+    name: '@project/nuxt-webkit-module',
     configKey: 'webkit',
     compatibility: {
-      nuxt: '^3.0.0',
+      nuxt: '^3.2.0',
     },
   },
 
