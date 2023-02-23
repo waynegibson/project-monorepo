@@ -12,6 +12,7 @@ This monorepo is used to mock, test and implement nodejs projects.
 - @project/tsconfig
 - @project/eslint-config-antfu
 - @project/database-core
+- @project/nuxt-webkit-module
 
 ### Database
 
@@ -40,6 +41,23 @@ To reset the database and have it seed the database.
 
 ```bash
 pnpm prisma migrate reset
+```
+
+
+## General commands 
+
+
+### Server process
+
+To kill a server process after the server was left running when the terminal is closed.
+
+```console
+npx kill-port --port <NUMBER>
+```
+or to kill multiple ports
+
+```console
+npx kill-port --port <NUMBER>,<NUMBER>,<NUMBER>
 ```
 
 ## Contributors
