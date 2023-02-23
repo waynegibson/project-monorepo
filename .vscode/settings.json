@@ -6,5 +6,10 @@
   },
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
-  }
+  },
+  "cSpell.words": [
+    "antfu",
+    "nuxi",
+    "unplugin"
+  ]
 }
