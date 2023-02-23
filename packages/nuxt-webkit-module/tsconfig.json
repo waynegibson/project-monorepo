@@ -1,9 +1,6 @@
 {
   "extends": "@project/tsconfig/nuxt-module.json",
   "compilerOptions": {
-    "types": [
-      ""
-    ],
     "paths": {
       "~/*": ["./src/*"],
       "@components/*": ["./src/runtime/components/*"]
