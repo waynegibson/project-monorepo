@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Nuxt 3 module",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "esnext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "types": [
+      "node"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "**/dist"
+  ]
+}

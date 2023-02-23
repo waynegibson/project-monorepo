@@ -1,0 +1,7 @@
+{
+  "name": "nuxt-webkit-module-playground",
+  "private": true,
+  "devDependencies": {
+    "@superiorwagyu/nuxt-webkit": "link:.."
+  }
+}

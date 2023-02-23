@@ -23,7 +23,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint",
     "test": "turbo run test --no-daemon",
-    "ci:version": "turbo run build lint test && changeset version"
+    "ci:version": "turbo run build lint test && changeset version",
+    "ci:publish": "pnpm publish -r"
   },
   "devDependencies": {
     "@changesets/changelog-git": "^0.1.14",
