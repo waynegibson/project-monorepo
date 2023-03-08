@@ -1,23 +1,16 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalEnv": ["NODE_ENV"],
+  "globalDependencies": ["**/.env.*local"],
   "pipeline": {
-    "dev": {
-      "dependsOn": ["^db:generate"],
-      "cache": false
-    },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "^generate"],
       "outputs": ["dist/**", ".output/**", ".cdk.out/**"]
     },
-    "db:generate": {
+    "dev": {
+      "dependsOn": ["^generate"],
       "cache": false
     },
-    "db:migrate:deploy": {
-      "dependsOn": ["build"],
-      "cache": false
-    },
-    "db:push": {
+    "generate": {
       "cache": false
     }
   }

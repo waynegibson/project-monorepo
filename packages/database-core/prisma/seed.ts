@@ -1,65 +1,54 @@
 /* eslint-disable no-console */
-import type { Prisma } from '@prisma/client'
 import { prisma } from '../src/index'
 
-const userData: Prisma.UserCreateInput[] = [
-  {
-    name: 'Alice',
-    email: 'alice@prisma.io',
-    posts: {
-      create: [
-        {
-          title: 'Join the Prisma Slack',
-          content: 'https://slack.prisma.io',
-          published: true,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Nilu',
-    email: 'nilu@prisma.io',
-    posts: {
-      create: [
-        {
-          title: 'Follow Prisma on Twitter',
-          content: 'https://www.twitter.com/prisma',
-          published: true,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Mahmoud',
-    email: 'mahmoud@prisma.io',
-    posts: {
-      create: [
-        {
-          title: 'Ask a question about Prisma on GitHub',
-          content: 'https://www.github.com/prisma/prisma/discussions',
-          published: true,
-        },
-        {
-          title: 'Prisma on YouTube',
-          content: 'https://pris.ly/youtube',
-          published: true,
-        },
-      ],
-    },
-  },
-]
-
 async function main() {
-  console.log('Start seeding ...')
+  await prisma.user.deleteMany()
+  await prisma.post.deleteMany()
 
-  for (const u of userData) {
-    const user = await prisma.user.create({
-      data: u,
-    })
-    console.log(`Created user with id: ${user.id}`)
-  }
+  console.log('Seeding...')
 
-  console.log('Seeding finished.')
+  const user1 = await prisma.user.create({
+    data: {
+      email: 'lisa@simpson.com',
+      firstname: 'Lisa',
+      lastname: 'Simpson',
+      password: '$2b$10$EpRnTzVlqHNP0.fUbXUwSOyuiXe/QLSUG6xNekdHgTGmrpHEfIoxm', // secret42
+      role: 'USER',
+      posts: {
+        create: {
+          title: 'Join us for Prisma Day 2019 in Berlin',
+          content: 'https://www.prisma.io/day/',
+          published: true,
+        },
+      },
+    },
+  })
+
+  const user2 = await prisma.user.create({
+    data: {
+      email: 'bart@simpson.com',
+      firstname: 'Bart',
+      lastname: 'Simpson',
+      role: 'ADMIN',
+      password: '$2b$10$EpRnTzVlqHNP0.fUbXUwSOyuiXe/QLSUG6xNekdHgTGmrpHEfIoxm', // secret42
+      posts: {
+        create: [
+          {
+            title: 'Subscribe to GraphQL Weekly for community news',
+            content: 'https://graphqlweekly.com/',
+            published: true,
+          },
+          {
+            title: 'Follow Prisma on Twitter',
+            content: 'https://twitter.com/prisma',
+            published: false,
+          },
+        ],
+      },
+    },
+  })
+
+  console.log({ user1, user2 })
 }
 
 main()

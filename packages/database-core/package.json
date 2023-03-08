@@ -11,29 +11,37 @@
   ],
   "scripts": {
     "build": "tsup",
-    "clean": "rimraf .turbo node_modules dist",
-    "db:migrate:deploy": "prisma migrate deploy",
-    "db:migrate:dev": "prisma migrate dev",
-    "db:generate": "prisma generate",
-    "db:push": "prisma db push --skip-generate",
-    "db:seed": "tsx prisma/seed.ts",
-    "format": "prisma format",
     "watch": "tsup --watch",
-    "studio": "prisma studio"
+    "clean": "rimraf .turbo node_modules dist",
+    "migrate:dev": "prisma migrate dev --preview-feature",
+    "migrate:dev:create": "prisma migrate dev --create-only --preview-feature",
+    "migrate:reset": "prisma migrate reset --preview-feature",
+    "migrate:deploy": "prisma migrate deploy --preview-feature",
+    "migrate:status": "prisma migrate status --preview-feature",
+    "migrate:resolve": "prisma migrate resolve --preview-feature",
+    "studio": "prisma studio",
+    "format": "prisma format",
+    "generate": "prisma generate",
+    "generate:watch": "prisma generate --watch",
+    "seed": "prisma db seed"
   },
   "peerDependencies": {
-    "prisma": "^4.9.0"
+    "prisma": "^4.11.0"
   },
   "dependencies": {
-    "@prisma/client": "^4.9.0"
+    "@prisma/client": "^4.11.0"
   },
   "devDependencies": {
     "@project/eslint-config-antfu": "workspace:*",
     "@project/tsconfig": "workspace:*",
-    "prisma": "^4.9.0",
-    "rimraf": "^4.1.2",
-    "tsup": "^6.5.0",
+    "prisma": "^4.11.0",
+    "rimraf": "^4.3.1",
+    "tsup": "^6.6.3",
     "tsx": "^3.12.3",
     "typescript": "^4.9.5"
+  },
+  "prisma": {
+    "schema": "./prisma/schema.prisma",
+    "seed": "tsx ./prisma/seed.ts"
   }
 }

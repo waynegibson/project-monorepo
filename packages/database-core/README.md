@@ -1,17 +1,6 @@
-# project-monorepro
+# project/database-core
 
-This monorepo is used to mock, test and implement nodejs projects.
-
-## Apps
-
-- @project/cdk-workmail-export
-- @project/marketing-website
-
-## Packages
-
-- @project/tsconfig
-- @project/eslint-config-antfu
-- @project/database-core
+This is a demo Postgres database setup using prisma.
 
 ### Database
 
