@@ -6,12 +6,12 @@ node_modules
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+dist
 
 # Custom
 .turbo
 
-# Env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# local env files
+.env
+.env.*
+!.env.example

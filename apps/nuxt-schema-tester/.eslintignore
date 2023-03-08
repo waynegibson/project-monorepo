@@ -4,12 +4,8 @@ node_modules
 .nitro
 .cache
 .output
-dist
-
-# local env files
 .env
-.env.*
-!.env.example
+dist
 
 # local netlify folder
 .netlify
