@@ -1,8 +1,8 @@
 {
-  "name": "@project/database-core",
+  "name": "@project/prisma-orm",
   "version": "0.0.0",
   "private": true,
-  "description": "The core database schema for the project.",
+  "description": "The prisma orm schema for the project.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

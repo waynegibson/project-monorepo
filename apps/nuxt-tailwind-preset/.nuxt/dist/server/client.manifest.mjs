@@ -1,1 +1,0 @@
-export { default } from "file:///Volumes/SSD2-DATA/spacestudio/workspace/repos/personal/projects-monorepo/node_modules/.pnpm/@nuxt+vite-builder@3.2.3_vue@3.2.47/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"

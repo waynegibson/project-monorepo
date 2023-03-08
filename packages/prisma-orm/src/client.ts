@@ -8,7 +8,7 @@
  *
  * In production we'll have a single connection to the DB.
  */
-import { PrismaClient } from '../node_modules/.prisma/client'
+import { PrismaClient } from '@prisma/client'
 
 // eslint-disable-next-line import/no-mutable-exports
 let prisma: PrismaClient
@@ -31,3 +31,4 @@ else {
 }
 
 export { prisma }
+export * from '@prisma/client'
