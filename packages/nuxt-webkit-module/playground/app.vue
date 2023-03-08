@@ -1,8 +1,13 @@
+<script lang="ts" setup>
+const clicked = (value: string) => {
+  console.log('button: ', value)
+}
+</script>
+
 <template>
   <div>
-    some template for playground
-    <WebkitButton>
-      click me...
+    <WebkitButton @submit="clicked">
+      Get in touch
     </WebkitButton>
   </div>
 </template>

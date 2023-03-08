@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 defineProps<{
   disabled?: boolean
-  sally?: string
 }>()
 defineEmits<{
   (e: 'submit', value: string): void
@@ -9,7 +8,7 @@ defineEmits<{
 </script>
 
 <template>
-  <button class="btn" :disabled="disabled" @click="$emit('submit')">
+  <button class="btn" :disabled="disabled" @click="$emit('submit', 'hello from button')">
     <slot>Button</slot>
   </button>
 </template>
