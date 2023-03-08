@@ -11,6 +11,9 @@
   },
   "devDependencies": {
     "@project/eslint-config-antfu": "workspace:*",
+    "@unocss/nuxt": "^0.50.4",
+    "@vueuse/core": "^9.13.0",
+    "@vueuse/nuxt": "^9.13.0",
     "nuxt": "^3.2.3"
   }
 }

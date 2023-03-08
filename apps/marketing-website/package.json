@@ -12,9 +12,9 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.3.1",
-    "@project/prisma-orm": "workspace:*",
     "@project/eslint-config-antfu": "workspace:*",
     "@project/nuxt-webkit-module": "workspace:*",
+    "@project/prisma-orm": "workspace:*",
     "@vueuse/nuxt": "^9.13.0",
     "nuxt": "^3.2.2",
     "tsx": "^3.12.3"

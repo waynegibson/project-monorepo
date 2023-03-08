@@ -3,6 +3,8 @@
   "compilerOptions": {
     "strict": true,
     "jsx": "preserve",
-    "types": []
+    "types": [
+      "@vueuse/nuxt"
+    ]
   }
 }
