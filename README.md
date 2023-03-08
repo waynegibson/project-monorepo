@@ -11,7 +11,7 @@ This monorepo is used to mock, test and implement nodejs projects.
 
 - @project/tsconfig
 - @project/eslint-config-antfu
-- @project/database-core
+- @project/prisma-orm
 
 ### Database
 
