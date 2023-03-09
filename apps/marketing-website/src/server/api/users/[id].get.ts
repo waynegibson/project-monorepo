@@ -1,7 +1,7 @@
 import type { Prisma } from '@project/prisma-orm'
 import { prisma } from '@project/prisma-orm'
 
-// Create a strongly typed `PostSelect` object with `satisfies`
+// Create a strongly typed `UserSelect` object with `satisfies`
 const userSelect = {
   id: true,
   firstname: true,

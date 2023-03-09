@@ -30,5 +30,7 @@ else {
   prisma.$connect()
 }
 
+// required for the custom connection client
 export { prisma }
+// required for the schema type definations
 export * from '@prisma/client'
