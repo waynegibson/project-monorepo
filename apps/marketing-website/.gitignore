@@ -11,5 +11,8 @@ dist
 .env.*
 !.env.example
 
+# turbo
+.turbo
+
 # local netlify folder
 .netlify

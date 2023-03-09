@@ -8,10 +8,11 @@ node_modules
 cdk.out
 dist
 
-# Custom
-.turbo
-
 # local env files
 .env
 .env.*
 !.env.example
+
+# turbo
+.turbo
+

@@ -7,3 +7,15 @@ node_modules
 .env
 dist
 .DS_Store
+
+# local env files
+.env
+.env.*
+!.env.example
+
+# turbo
+.turbo
+
+# local netlify folder
+.netlify
+

@@ -2,10 +2,10 @@ import { prisma } from '@project/prisma-orm'
 
 export default defineEventHandler(
   async (): Promise<any> => {
-    const users = await prisma.user.findMany()
+    const posts = await prisma.post.findMany()
 
     return {
-      ...users,
+      ...posts,
     }
   },
 )
