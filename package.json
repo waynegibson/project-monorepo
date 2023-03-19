@@ -14,7 +14,8 @@
     "test": "turbo run test --no-daemon",
     "ci:version": "turbo run build lint test && changeset version",
     "ci:publish": "pnpm publish -r",
-    "web:marketing": "turbo run dev --filter @project/marketing-website --no-daemon"
+    "web:marketing": "turbo run dev --filter @project/marketing-website --no-daemon",
+    "web:server": "turbo run dev --filter @project/nuxt-server-demo --no-daemon"
   },
   "devDependencies": {
     "@changesets/changelog-git": "^0.1.14",
