@@ -55,7 +55,20 @@ pnpm prisma migrate reset
 
 ## General commands 
 
+### Upgrade packages
 
+```console
+pnpm upgrade --latest
+```
+```console
+pnpm upgrade --latest --filter @project/eslint-config-antfu
+```
+```console
+pnpm upgrade --latest --filter @project/marketing-website
+```
+```console
+pnpm upgrade --latest --filter @project/prisma-orm
+```
 ### Server process
 
 To kill a server process after the server was left running when the terminal is closed.

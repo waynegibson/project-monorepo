@@ -5,11 +5,11 @@
   "description": "Anthony Fu eslint package preset.",
   "main": "index.js",
   "dependencies": {
-    "@antfu/eslint-config": "^0.35.2",
-    "eslint": "^8.34.0",
-    "eslint-config-turbo": "^0.0.8"
+    "@antfu/eslint-config": "^0.37.0",
+    "eslint": "^8.36.0",
+    "eslint-config-turbo": "^0.0.9"
   },
   "devDependencies": {
-    "typescript": "^4.9.5"
+    "typescript": "^5.0.2"
   }
 }
