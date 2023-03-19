@@ -1,0 +1,22 @@
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+dist
+
+# local env files
+.env
+.env.*
+!.env.example
+
+# turbo
+.turbo
+
+# local netlify folder
+.netlify
+
+# custom
+src/pages/mock*.vue
+src/public/tmp*
