@@ -27,7 +27,7 @@ export const categories: Prisma.CourseCategoryCreateManyArgs = {
       badge: null,
       excerpt: 'We teach you how to communicate with your dog, important tools and exercises.',
       description: 'Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis',
-      link: { href: `/course/category/${paramSlug1}`, icon: 'chart-pie' },
+      link: { href: `/courses/category/${paramSlug1}`, icon: 'chart-pie' },
       slug: `${paramSlug1}`,
     },
     {
@@ -36,7 +36,7 @@ export const categories: Prisma.CourseCategoryCreateManyArgs = {
       badge: 'New',
       excerpt: 'Connect with third-party tools and find out expectations.',
       description: 'Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis',
-      link: { href: `/course/category/${paramSlug2}`, icon: 'squares-plus' },
+      link: { href: `/courses/category/${paramSlug2}`, icon: 'squares-plus' },
       slug: `${paramSlug2}`,
     },
     {
@@ -45,7 +45,7 @@ export const categories: Prisma.CourseCategoryCreateManyArgs = {
       badge: null,
       excerpt: 'Speak directly to your customers with our engagement tool',
       description: 'Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis',
-      link: { href: `/course/category/${paramSlug3}`, icon: 'cursor-arrow-rays' },
+      link: { href: `/courses/category/${paramSlug3}`, icon: 'cursor-arrow-rays' },
       slug: `${paramSlug3}`,
     },
     {
@@ -54,7 +54,7 @@ export const categories: Prisma.CourseCategoryCreateManyArgs = {
       badge: null,
       excerpt: 'Build strategic funnels that will convert',
       description: 'Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis',
-      link: { href: `/course/category/${paramSlug4}`, icon: 'arrow-path' },
+      link: { href: `/courses/category/${paramSlug4}`, icon: 'arrow-path' },
       slug: `${paramSlug4}`,
     },
     {
@@ -63,7 +63,7 @@ export const categories: Prisma.CourseCategoryCreateManyArgs = {
       badge: null,
       excerpt: 'Once you have graduated Basic Home Obedience Three.',
       description: 'Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis',
-      link: { href: `/course/category/${paramSlug5}`, icon: 'finger-print' },
+      link: { href: `/courses/category/${paramSlug5}`, icon: 'finger-print' },
       slug: `${paramSlug5}`,
     },
     {
@@ -72,7 +72,7 @@ export const categories: Prisma.CourseCategoryCreateManyArgs = {
       badge: null,
       excerpt: 'Edit, manage and create newly informed decisions',
       description: 'Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis',
-      link: { href: `/course/category/${paramSlug6}`, icon: 'briefcase' },
+      link: { href: `/courses/category/${paramSlug6}`, icon: 'briefcase' },
       slug: `${paramSlug6}`,
     },
   ],

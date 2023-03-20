@@ -2,7 +2,7 @@ import type { Prisma } from '@project/prisma-orm'
 import { prisma } from '@project/prisma-orm'
 
 // Create a strongly typed `PostSelect` object with `satisfies`
-const postSelect = {
+const postAuthorSelect = {
   title: true,
   createdAt: true,
   author: {
@@ -15,16 +15,16 @@ const postSelect = {
 } satisfies Prisma.PostSelect
 
 // Infer the resulting payload type
-type MyPostPayload = Prisma.PostGetPayload<{ select: typeof postSelect }>
+type PostAuthorPayload = Prisma.PostGetPayload<{ select: typeof postAuthorSelect }>
 
 export default defineEventHandler(
-  async (event): Promise<MyPostPayload> => {
+  async (event): Promise<PostAuthorPayload> => {
     const { id: record } = event.context
 
-    // The result type is equivalent to `MyPostPayload | null`
+    // The result type is equivalent to `PostAuthorPayload | null`
     const post = await prisma.post.findFirst({
       where: { id: record },
-      select: postSelect,
+      select: postAuthorSelect,
     })
 
     if (!post) {
