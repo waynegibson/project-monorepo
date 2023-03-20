@@ -35,6 +35,7 @@ Run this command when working in development mode.
 
 ```bash
 pnpm migrate:dev
+pnpm generate
 ```
 then seed the database with dummy data
 
@@ -51,7 +52,6 @@ To reset the database and have it seed the database.
 ```bash
 pnpm prisma migrate reset
 ```
-
 
 ## General commands 
 
