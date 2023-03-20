@@ -3,7 +3,8 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/tailwindcss',
-    '@project/nuxt-webkit-module',
+    '@pinia/nuxt',
+    // '@project/nuxt-webkit-module', // this module is not working. git checkout a31cd94
     '@vueuse/nuxt',
   ],
 
@@ -12,9 +13,9 @@ export default defineNuxtConfig({
     configPath: 'tailwind.config.ts',
   },
 
-  webkit: {
-    prefix: 'webkit',
-  },
+  // webkit: {
+  //   prefix: 'webkit',
+  // },
 
   typescript: {
     strict: true,

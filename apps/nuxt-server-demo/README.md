@@ -1,1 +1,0 @@
-# @project/nuxt-server-demo

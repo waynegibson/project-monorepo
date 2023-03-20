@@ -1,5 +1,22 @@
+<script lang="ts" setup></script>
+
 <template>
-  <div class="max-w-7xl mx-auto">
-    <NuxtWelcome />
+  <div class="bg-white">
+    <main>
+      <!-- Hero section -->
+      <TheHero />
+
+      <!-- Logo cloud -->
+      <LogoClouds />
+
+      <!-- Feature section -->
+      <FeatureSection />
+
+      <!-- Newsletter section -->
+      <Newletter />
+
+      <!-- Testimonials section -->
+      <Testimonials />
+    </main>
   </div>
 </template>

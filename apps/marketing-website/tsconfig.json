@@ -4,6 +4,8 @@
     "strict": true,
     "jsx": "preserve",
     "types": [
+      "@pinia/nuxt",
+      "@vueuse/core",
       "@vueuse/nuxt"
     ]
   }
