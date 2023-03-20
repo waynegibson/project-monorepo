@@ -1,0 +1,62 @@
+import type { Prisma } from '../../dist'
+
+export const puppyClasses: Prisma.CourseCreateInput = {
+  title: 'Puppy Classes',
+  description: '',
+  status: 'ACTIVE',
+  slug: 'puppy-classes',
+  categories: {
+    connect: { slug: 'puppy-obedience-and-socialisation' },
+  },
+  classes: {
+    create: [
+      {
+        title: 'Puppy 1',
+        description: 'We teach you how to communicate with your dog, important tools and exercises.',
+        price: { amount: '1500', period: '/dog', symbol: 'R' },
+        duration: '10 week course',
+        audience: 'New puppy owners',
+        features: [
+          'Leash & heel work',
+          'Basic obedience, mental stimulation, enrichment and tricks',
+          'Marker words',
+          'Socializing and playtime',
+          'Jumping and common behaviour problems',
+          'Behaviour shaping and behaviour modification',
+          'Building the bond between handler and puppy',
+          'Custom advice based on dog psychology',
+          'Sounds, textures and environmental desensitization',
+          'Poison proofing',
+          'Impulse control',
+        ],
+        mostPopular: true,
+        status: 'ACTIVE',
+        slug: 'puppy-1',
+      },
+      {
+        title: 'Puppy 2',
+        description: 'Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis.',
+        price: { amount: '1500', period: '/dog', symbol: 'R' },
+        duration: '10 week course',
+        audience: 'Requires Puppy One Completion',
+        features: [
+          'Requires Puppy One Completion',
+          'Leash & heel work',
+          'Basic obedience, mental stimulation, enrichment and tricks',
+          'Marker words',
+          'Socializing and playtime',
+          'Jumping and common behaviour problems',
+          'Behaviour shaping and behaviour modification',
+          'Building the bond between handler and puppy',
+          'Custom advice based on dog psychology',
+          'Sounds, textures and environmental desensitization',
+          'Poison proofing',
+          'Impulse control',
+        ],
+        mostPopular: false,
+        status: 'ACTIVE',
+        slug: 'puppy-2',
+      },
+    ],
+  },
+}

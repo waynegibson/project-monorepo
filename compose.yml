@@ -5,9 +5,9 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=acme
+      - POSTGRES_DB=projects
     ports:
-      - 6500:5432
+      - 6600:5432
     volumes:
       - postgres_data:/var/lib/postgresql/data/
 

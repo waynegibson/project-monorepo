@@ -1,11 +1,23 @@
 /* eslint-disable no-console */
-import { prisma } from '../src/index'
+import { createCourses } from '../seed-data/courses'
+import { prisma } from '../dist'
+
+async function deleteTables() {
+  await prisma.$transaction([
+    prisma.user.deleteMany(),
+    prisma.post.deleteMany(),
+    prisma.courseClass.deleteMany(),
+    prisma.course.deleteMany(),
+    prisma.courseCategory.deleteMany(),
+  ])
+}
 
 async function main() {
-  await prisma.user.deleteMany()
-  await prisma.post.deleteMany()
+  await deleteTables()
 
   console.log('Seeding...')
+
+  await createCourses()
 
   const user1 = await prisma.user.create({
     data: {
@@ -48,7 +60,7 @@ async function main() {
     },
   })
 
-  console.log({ user1, user2 })
+  console.log('Seeding complete...')
 }
 
 main()
