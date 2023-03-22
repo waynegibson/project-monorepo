@@ -15,7 +15,6 @@ const navigation = [
   { name: 'Marketplace', href: '#' },
   { name: 'Company', href: '#' },
 ]
-
 const mobileMenuOpen = ref(false)
 </script>
 

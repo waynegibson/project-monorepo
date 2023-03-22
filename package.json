@@ -14,7 +14,9 @@
     "test": "turbo run test --no-daemon",
     "ci:version": "turbo run build lint test && changeset version",
     "ci:publish": "pnpm publish -r",
-    "web:marketing": "dotenv -- turbo run dev --filter @project/marketing-website --no-daemon"
+    "web:marketing": "dotenv -- turbo run dev --filter @project/marketing-website --no-daemon",
+    "db:migrate": "turbo run migrate:dev  --no-daemon",
+    "db:seed": "turbo run seed  --no-daemon"
   },
   "devDependencies": {
     "@changesets/changelog-git": "^0.1.14",

@@ -4,6 +4,7 @@ node_modules
 .nitro
 .cache
 .output
+.cache-data
 dist
 
 # local env files
