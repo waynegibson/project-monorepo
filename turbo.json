@@ -14,6 +14,10 @@
     },
     "generate": {
       "cache": false
+    },
+    "migrate:dev": {},
+    "seed": {
+      "dependsOn": ["^migrate:dev"]
     }
   }
 }

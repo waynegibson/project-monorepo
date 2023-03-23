@@ -2,7 +2,7 @@ import type { Prisma } from '@project/prisma-orm'
 import { prisma } from '@project/prisma-orm'
 
 // Create a strongly typed `UserSelect` object with `satisfies`
-const userSelect = {
+const userPostSelect = {
   id: true,
   firstname: true,
   lastname: true,
@@ -11,16 +11,16 @@ const userSelect = {
 } satisfies Prisma.UserSelect
 
 // Infer the resulting payload type
-type MyUserPayload = Prisma.UserGetPayload<{ select: typeof userSelect }>
+type UserPostPayload = Prisma.UserGetPayload<{ select: typeof userPostSelect }>
 
 export default defineEventHandler(
-  async (event): Promise<MyUserPayload> => {
-    const { id: record } = event.context
+  async (event): Promise<UserPostPayload> => {
+    const { id } = event.context
 
-    // The result type is equivalent to `MyUserPayload | null`
+    // The result type is equivalent to `UserPostPayload | null`
     const user = await prisma.user.findFirst({
-      where: { id: record },
-      select: userSelect,
+      where: { id },
+      select: userPostSelect,
     })
 
     if (!user) {
