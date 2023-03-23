@@ -1,5 +1,6 @@
 import type { Prisma } from '@project/prisma-orm'
 import { prisma } from '@project/prisma-orm'
+import cache from '../../cache'
 
 const courseClassSelect = {
   title: true,
@@ -15,6 +16,7 @@ const courseClassSelect = {
 const courseSelect = {
   title: true,
   description: true,
+  status: true,
   slug: true,
   classes: {
     select: courseClassSelect,
@@ -27,21 +29,27 @@ export default defineEventHandler(
   async (event): Promise<CourseClassesByCoursePayload> => {
     const slug = event.context.params?.courseSlug
 
-    const course = await prisma.course.findFirst({
-      where: {
-        slug,
-        status: 'ACTIVE',
-      },
-      select: courseSelect,
-    })
-
-    if (!course) {
-      throw createError({
-        statusCode: 404,
-        statusMessage: 'Course not found.',
+    const fetcher = async () => {
+      const course = await prisma.course.findFirst({
+        where: {
+          slug,
+          status: 'ACTIVE',
+        },
+        select: courseSelect,
       })
+
+      if (!course) {
+        throw createError({
+          statusCode: 404,
+          statusMessage: 'Course not found.',
+        })
+      }
+
+      return course
     }
 
-    return course
+    const cachedCourse = await cache.fetch(`courses:course:${slug}`, fetcher)
+
+    return cachedCourse
   },
 )

@@ -1,10 +1,10 @@
 import type { Prisma } from '@project/prisma-orm'
 import { prisma } from '@project/prisma-orm'
+import cache from '../../cache'
 
 const courseSelect = {
   title: true,
   description: true,
-  status: true,
   slug: true,
 } satisfies Prisma.CourseSelect
 
@@ -12,9 +12,7 @@ export type CoursePayload = Prisma.CourseGetPayload<{ select: typeof courseSelec
 
 export default defineEventHandler(
   async (_): Promise<CoursePayload[]> => {
-    const cache = await useStorage('db').getItem('courses:all')
-
-    if (!cache) {
+    const fetcher = async () => {
       const courses = await prisma.course.findMany({
         where: { status: 'ACTIVE' },
         select: courseSelect,
@@ -27,12 +25,11 @@ export default defineEventHandler(
         })
       }
 
-      await useStorage('db').setItem('courses:all', courses)
-
       return courses
     }
-    else {
-      return cache as CoursePayload[]
-    }
+
+    const cachedCourses = await cache.fetch('courses:all', fetcher)
+
+    return cachedCourses
   },
 )
