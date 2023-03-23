@@ -8,6 +8,8 @@ services:
     networks:
       - project-network
     image: postgres:latest
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
     restart: always
     environment:
       - POSTGRES_USER=postgres

@@ -1,6 +1,6 @@
 # project-monorepro
 
-This monorepo is used to mock, test and implement nodejs projects.
+This monorepo is used to mock, test and implement nodejs projects. It uses pnpm as the package mananger.
 
 ## Apps
 
@@ -13,7 +13,20 @@ This monorepo is used to mock, test and implement nodejs projects.
 - @project/eslint-config-antfu
 - @project/prisma-orm
 
-### Database
+## Installation
+
+To do the initial install run - 
+
+```console
+pnpm install
+```
+then build apps and packages run -
+
+```console
+pnpm build
+```
+
+## Database
 
 We use [Prisma](https://prisma.io/) to manage & access our database. As such you will need a database for this project, either locally or hosted in the cloud.
 
@@ -34,23 +47,12 @@ To add the necessary tables to your databse, you need to create and deploy the p
 Run this command when working in development mode.
 
 ```bash
-pnpm migrate:dev
-pnpm generate
+pnpm db:migrate
 ```
-then seed the database with dummy data
+then seed the database with dummy data.
 
 ```bash
-pnpm seed
-```
-Run this command when pushing to production.
-
-```bash
-pnpm migrate:deploy
-```
-To reset the database and have it seed the database.
-
-```bash
-pnpm prisma migrate reset
+pnpm db:seed
 ```
 
 ## General commands 

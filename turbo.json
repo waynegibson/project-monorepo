@@ -4,12 +4,10 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build", "^generate"],
-      "env": ["DATABASE_URL"],
       "outputs": ["dist/**", ".output/**", ".cdk.out/**"]
     },
     "dev": {
       "dependsOn": ["^generate"],
-      "env": ["DATABASE_URL"],
       "cache": false
     },
     "generate": {
