@@ -1,6 +1,6 @@
 # project-monorepro
 
-This monorepo is used to mock, test and implement nodejs projects.
+This monorepo is used to mock, test and implement nodejs projects. It uses pnpm as the package mananger.
 
 ## Apps
 
@@ -15,12 +15,17 @@ This monorepo is used to mock, test and implement nodejs projects.
 
 ## Installation
 
-To do the initial setup run - 
+To do the initial install run - 
 
-```
+```console
 pnpm install
+```
+then build apps and packages run -
+
+```console
 pnpm build
 ```
+
 ## Database
 
 We use [Prisma](https://prisma.io/) to manage & access our database. As such you will need a database for this project, either locally or hosted in the cloud.
