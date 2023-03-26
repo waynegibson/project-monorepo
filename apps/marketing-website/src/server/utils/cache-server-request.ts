@@ -1,7 +1,7 @@
 type TransactionOptions = Record<string, any>
 
 const config = useRuntimeConfig()
-const base = config.CACHE_STORAGE_BASE
+const storage = useStorage(config.CACHE_STORAGE_TYPE)
 
 /**
  * Set the item in the cache by it's key.
@@ -14,7 +14,7 @@ const base = config.CACHE_STORAGE_BASE
 const setItem = async <T>(key: string, fetcher: () => T, opts?: TransactionOptions): Promise<T> => {
   const value = await fetcher()
 
-  await useStorage(base).setItem(key, JSON.stringify(value), opts)
+  await storage.setItem(key, JSON.stringify(value), opts)
 
   return value
 }
@@ -26,7 +26,7 @@ const setItem = async <T>(key: string, fetcher: () => T, opts?: TransactionOptio
  * @returns
  */
 const getItem = async <T>(key: string): Promise<T | null> => {
-  const value = await useStorage(base).getItem(key)
+  const value = await storage.getItem(key)
 
   return value === null
     ? null
@@ -39,12 +39,11 @@ const getItem = async <T>(key: string): Promise<T | null> => {
  * @param key
  */
 const removeItem = async (key: string): Promise<void> => {
-  await useStorage(base).removeItem(key)
+  await storage.removeItem(key)
 }
 
 /**
- * Fetch the item from the cache or make the api fetch call,
- * then add the item to the cache.
+ * Fetch the item from the cache or set the item in cache.
  *
  * @param key
  * @param fetcher

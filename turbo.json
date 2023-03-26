@@ -13,9 +13,12 @@
     "generate": {
       "cache": false
     },
-    "migrate:dev": {},
+    "migrate:dev": {
+      "cache": false
+    },
     "seed": {
-      "dependsOn": ["^migrate:dev"]
+      "dependsOn": ["^migrate:dev"],
+      "cache": false
     }
   }
 }

@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   ],
 
   runtimeConfig: {
-    CACHE_STORAGE_BASE: process.env.CACHE_STORAGE_BASE || 'db',
+    CACHE_STORAGE_TYPE: process.env.CACHE_STORAGE_TYPE || 'local',
     public: {
       BASE_URL: process.env.BASE_URL || 'https://localhost:3001/',
     },
@@ -22,9 +22,9 @@ export default defineNuxtConfig({
     storage: {
       // To use this cache storage for production, set the env CACHE_STORAGE_BASE='upstash'
       upstash: {
-        base: 'k9',
+        base: process.env.CACHE_STORAGE_BASE_KEY ?? undefined,
         driver: 'redis',
-        url: process.env.UPSTASH_REDIS_CONN,
+        url: process.env.UPSTASH_REDIS_CONNECTION,
       },
     },
 
@@ -35,7 +35,7 @@ export default defineNuxtConfig({
         base: './.storage-cache/db',
       },
       docker: {
-        base: 'test',
+        base: process.env.CACHE_STORAGE_BASE_KEY ?? undefined,
         driver: 'redis',
         host: process.env.REDIS_HOST,
         port: process.env.REDIS_PORT,

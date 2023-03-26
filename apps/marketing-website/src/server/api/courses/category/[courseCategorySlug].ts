@@ -1,6 +1,6 @@
 import type { Prisma } from '@project/prisma-orm'
 import { prisma } from '@project/prisma-orm'
-import cache from '~~/src/server/cache'
+import cache from '~~/src/server/utils/cache-server-request'
 
 const courseClassSelect = {
   title: true,
@@ -41,7 +41,7 @@ export default defineEventHandler(
   async (event): Promise<CourseClassByCategoryPayload> => {
     const slug = event.context.params?.courseCategorySlug
 
-    const fetcher = async () => {
+    const fetchCourseCategory = async () => {
       const category = await prisma.courseCategory.findUnique({
         where: { slug },
         select: courseCategorySelect,
@@ -57,7 +57,7 @@ export default defineEventHandler(
       return category
     }
 
-    const cachedCourseCategory = cache.fetch(`courses:category:${slug}`, fetcher, { ttl: 60 * 60 }) // cache 1 hour in seconds 3600
+    const cachedCourseCategory = cache.fetch(`courses:category:${slug}`, fetchCourseCategory, { ttl: 60 * 60 }) // cache 1 hour in seconds 3600
 
     return cachedCourseCategory
   },

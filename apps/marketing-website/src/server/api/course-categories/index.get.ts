@@ -1,6 +1,6 @@
 import type { Prisma } from '@project/prisma-orm'
 import { prisma } from '@project/prisma-orm'
-import cache from '../../cache'
+import cache from '../../utils/cache-server-request'
 
 const courseCategorySelect = {
   name: true,
@@ -16,7 +16,7 @@ export type CourseCategoryPayload = Prisma.CourseCategoryGetPayload<{ select: ty
 
 export default defineEventHandler(
   async (_): Promise<CourseCategoryPayload[]> => {
-    const fetcher = async () => {
+    const fetchCourseCatgories = async () => {
       const categories = await prisma.courseCategory.findMany({
         select: courseCategorySelect,
       })
@@ -31,7 +31,7 @@ export default defineEventHandler(
       return categories
     }
 
-    const cachedCourseCategories = await cache.fetch('course:categories:all', fetcher, { ttl: 60 * 24 * 7 * 60 }) // cache 1 week in seconds 604800
+    const cachedCourseCategories = await cache.fetch('course:categories:all', fetchCourseCatgories, { ttl: 60 * 24 * 7 * 60 }) // cache 1 week in seconds 604800
 
     return cachedCourseCategories
   },

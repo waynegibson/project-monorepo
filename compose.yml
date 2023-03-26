@@ -14,7 +14,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=projects
+      - POSTGRES_DB=project
     ports:
       - 5432:5432
     volumes:
